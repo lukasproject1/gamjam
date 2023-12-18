@@ -39,10 +39,6 @@ public class player : MonoBehaviour
         {
             rb.AddForce(Vector2.right);
         }
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(Vector2.up);
-        }
         if (Input.GetKey(KeyCode.S))
         {
             rb.AddForce(Vector2.down);
@@ -63,11 +59,15 @@ public class player : MonoBehaviour
             float distanceToHitObject = Vector2.Distance(transform.position, hit.point);
             Debug.Log(distanceToHitObject);
             isGrounded = true;
-            if (distanceToHitObject < 1f)
+            if (distanceToHitObject < 0.6f)
             {
                 Debug.Log(hit.collider.gameObject.name);
 
                 Debug.Log("m'n code is hier aangekomen");
+            }
+            else 
+            {
+                isGrounded = false; 
             }
 
 
